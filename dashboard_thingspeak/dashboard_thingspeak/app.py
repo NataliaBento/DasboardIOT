@@ -6,7 +6,7 @@ import plotly.graph_objs as go
 app = Flask(__name__)
 
 
-THINGSPEAK_CHANNEL_ID = 'SEU_CHANEL_ID'
+THINGSPEAK_CHANNEL_ID = 'SEU_CHANNEL_ID'
 THINGSPEAK_API_KEY = 'SUA_API_KEY'  
 NUM_RESULTS = 100
 THINGSPEAK_URL = f"https://api.thingspeak.com/channels/{THINGSPEAK_CHANNEL_ID}/feeds.json"
@@ -63,4 +63,5 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
