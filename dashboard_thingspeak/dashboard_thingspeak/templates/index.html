@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard IoT - ThingSpeak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #ffffff5c;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background-color: #ffffff5c;
+            border-radius: 8px;
+            padding: 20px 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 26px;
+            color: #ae27a9;
+            margin-top: 10px;
+        }
+
+        .graph {
+            background-color: #9418c580;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 0 auto 40px;
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard IoT - Umidade e Temperatura</h1>
+
+    <div class="description">
+        Este painel exibe os dados coletados por sensores conectados ao canal ThingSpeak em tempo real.<br><br>
+        O gráfico de <strong>Temperatura</strong> mostra a variação dos valores em graus Celsius ao longo do tempo, permitindo acompanhar tendências de aquecimento ou resfriamento.<br>
+        O gráfico de <strong>Umidade</strong> apresenta os níveis percentuais de umidade relativa do ar, úteis para monitorar ambientes internos ou externos.<br><br>
+        As leituras mais recentes são destacadas abaixo para facilitar a visualização rápida dos valores atuais.
+    </div>
+
+    <div class="metrics">
+        <div class="metric">
+            Temperatura Atual
+            <strong>{{ last_temp }} °C</strong>
+        </div>
+        <div class="metric">
+            Umidade Atual
+            <strong>{{ last_umidade }} %</strong>
+        </div>
+    </div>
+
+    <div class="graph">
+        {{ temp_plot | safe }}
+    </div>
+
+    <div class="graph">
+        {{ umidade_plot | safe }}
+    </div>
+</body>
+</html>
